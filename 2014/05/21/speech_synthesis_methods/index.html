@@ -91,11 +91,14 @@
 <h1>可训练的语音合成</h1>
 <p>可训练的语音合成（Trainable TTS）的基本思想就是基于一套自动化的流程，根据输入的语音数据进行训练，并形成一个相应的合成系统。</p>
 <p>在语音信号处理中，最普遍有效的建模方式就是隐马尔科夫模型（Hidden Markov Models, HMM），它在语音识别中已经有非常成熟的应用，目前的Trainable TTS也都是基于HMM进行参数建模。</p>
+<h1>基于神经网络的语音合成</h1>
+<p>2006年，Hinton等人提出深度学习的概念，深度学习在不同领域得到了很好的应用，并且也取得了不错的效果。2012年，Hinton等人就利用深度神经网络对语音识别进行声学建模。2013年，Zen等人实现了基于深度神经网络的参数式语音合成。</p>
 <h1>总结</h1>
 <p>随着计算机处理能力的不断提高，目前主要流行的是可训练的语音合成，并且为了提高合成语音的音质，一般会采用混合式语音合成方法，即基于HMM的单元挑选和波形拼接语音合成。将统计建模的思想引入到单元挑选和波形拼接中，结合了两种方法的优点，也取得了不错的效果。</p>
 <h1>参考文献</h1>
 <ol>
 <li>吴义坚. 基于隐马尔科夫模型的语音合成技术研究[D]. 中国科学技术大学, 2006.</li>
+<li>Ze H, Senior A, Schuster M. Statistical parametric speech synthesis using deep neural networks[C]//Acoustics, Speech and Signal Processing (ICASSP), 2013 IEEE International Conference on. IEEE, 2013: 7962-7966.</li>
 </ol>
 <p>2014/5/21 21:12:59 Version 1</p>
 <p>2014/5/29 22:37:52 Version 2</p>
