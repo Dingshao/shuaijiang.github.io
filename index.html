@@ -56,6 +56,55 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2014-10-18T07:39:59.000Z"><a href="/2014/10/18/knn_kmeans/">10月 18 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/10/18/knn_kmeans/">K近邻法 k-means</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1>简介</h1>
+<p>K近邻法（knn）是一种基本的分类与回归方法。k-means是一种简单而有效的聚类方法。虽然两者用途不同、解决的问题不同，但是在算法上有很多相似性，于是将二者放在一起，这样能够更好地对比二者的异同。</p>
+<h1>算法描述</h1>
+<h2>knn</h2>
+<p>如果一个样本在特征空间中的k个最相似(即特征空间中最邻近)的样本中的大多数属于某一个类别，则该样本也属于这个类别</p>
+<h2>k-means</h2>
+<ol>
+<li>从n个数据中随机选择 k 个对象作为初始聚类中心；</li>
+<li>根据每个聚类对象的均值（中心对象），计算每个数据点与这些中心对象的距离；并根据最小距离准则，重新对数据进行划分；</li>
+<li>重新计算每个有变化的聚类簇的均值，选择与均值距离最小的数据作为中心对象；</li>
+<li>循环步骤2和3，直到每个聚类簇不再发生变化为止。</li>
+</ol>
+<h1>源代码</h1>
+<p>有待补充</p>
+<h1>参考文献</h1>
+<ol>
+<li>李航. 统计学习方法.清华大学出版社.2012</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-10-16T01:57:26.000Z"><a href="/2014/10/16/perl_filter_file/">10月 16 2014</a></time>
       
       
@@ -409,41 +458,11 @@ copy(<span class="string">"sourcefile"</span>,<span class="string">"destinationf
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-11-30T11:31:46.000Z"><a href="/2013/11/30/hello-world/">11月 30 2013</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/11/30/hello-world/">Hello World</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>Welcome to <a href="http://zespia.tw/hexo" target="_blank">Hexo</a>! This is your very first post. Check <a href="http://zespia.tw/hexo/docs" target="_blank">documentation</a> to learn how to use. </p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
 
 <nav id="pagination">
   
+  
+    <a href="/page/2/" class="alignright next">下一页</a>
   
   <div class="clearfix"></div>
 </nav></div></div>
@@ -471,6 +490,8 @@ copy(<span class="string">"sourcefile"</span>,<span class="string">"destinationf
     <li><a href="/tags/ubuntu/">ubuntu</a><small>1</small></li>
   
     <li><a href="/tags/信息浪潮/">信息浪潮</a><small>1</small></li>
+  
+    <li><a href="/tags/机器学习/">机器学习</a><small>1</small></li>
   
     <li><a href="/tags/语音合成/">语音合成</a><small>3</small></li>
   
