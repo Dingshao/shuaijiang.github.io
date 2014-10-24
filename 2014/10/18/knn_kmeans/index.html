@@ -21,7 +21,7 @@ k-means
 算法步骤：1. 从n个数据中随机选择 k 个对象作为初始聚类中心；2. 根据每个聚类对象的均值（中心对象），计算每个数据点与这些中心对象的距离；并根据最小距离准则，重新对数据进行划分；3. 重新计算每个有变化的聚类簇的均值，选择与均值距离最小的数据作为中心对象；4. 循环步骤2和3，直到每个聚类簇不再发生变化为止。
 k-means方法的基本要素：
 
-k值的选择：也就是类别的确定。
+k值的选择：也就是类别的确定，与K近邻中k值的确定方法类似。
 距离度量：可以采用欧氏距离、曼哈顿距离等。">
   
   
@@ -98,7 +98,7 @@ k值的选择：也就是类别的确定。
 <p>算法步骤：<br>1. 从n个数据中随机选择 k 个对象作为初始聚类中心；<br>2. 根据每个聚类对象的均值（中心对象），计算每个数据点与这些中心对象的距离；并根据最小距离准则，重新对数据进行划分；<br>3. 重新计算每个有变化的聚类簇的均值，选择与均值距离最小的数据作为中心对象；<br>4. 循环步骤2和3，直到每个聚类簇不再发生变化为止。</p>
 <p>k-means方法的基本要素：</p>
 <ol>
-<li>k值的选择：也就是类别的确定。</li>
+<li>k值的选择：也就是类别的确定，与K近邻中k值的确定方法类似。</li>
 <li>距离度量：可以采用欧氏距离、曼哈顿距离等。<a id="more"></a>
 
 
@@ -112,10 +112,19 @@ k值的选择：也就是类别的确定。
 <p>数据集合：<a href="https://github.com/shuaijiang/FemaleMaleDatabase" title="https://github.com/shuaijiang/FemaleMaleDatabase" target="_blank"><a href="https://github.com/shuaijiang/FemaleMaleDatabase">https://github.com/shuaijiang/FemaleMaleDatabase</a></a></p>
 <p>该数据集包含了训练数据集和测试数据集，考虑在该数据集上利用k近邻算法和k-means方法分别实现性别的分类和聚类。</p>
 <p>将训练数据展示到图中，可以更加直观地观察到数据样本之间的联系和差异，以及不同性别之间的差异。<br><img src="/image/male_female.png" alt="数据展示"></p>
-<h2>结果</h2>
-<p>有待补充</p>
+<h2>KNN的分类结果</h2>
+<p>KNN算法中的基本设置</p>
+<ul>
+<li>k=5</li>
+<li>距离度量：欧氏距离</li>
+<li>分类决策规则：多数投票</li>
+</ul>
+<p>利用KNN算法，在测试集（<a href="https://github.com/shuaijiang/FemaleMaleDatabase/blob/master/test0.txt" title="test0" target="_blank"><a href="https://github.com/shuaijiang/FemaleMaleDatabase/blob/master/test0.txt">https://github.com/shuaijiang/FemaleMaleDatabase/blob/master/test0.txt</a></a>）上的结果如下混淆矩阵表所示。从表中可以看出，测试集中的男性全部分类正确，测试集中的女性有一个被错误分类，其他都分类正确。</p>
+<table border="1" align="center" valign="center"><br><tr><br><th>混淆矩阵</th><br><td>Test:male</td><br><td>Test:female</td><br></tr><br><tr><br><td>Result:male</td><br><td align="center">20</td><br><td align="center" >1</td><br></tr><br><tr><br><td>Result:female</td><br><td align="center">0</td><br><td align="center">14</td><br></tr><br></table>
+
+<p>（表注：Test:male、Test:female分别表示测试集中的男性和女性，Result:male和Result:female分别表示结果中的男性和女性。表格中第一个元素：即Test:male列、Result：male行，表示测试集中为男性、并且结果中也为男性的数目。表格中其他元素所代表的含义以此类推）<br>由上表可以计算分类的正确率：(20+14)/(20+14+1) = 97.14%</p>
 <h1>源代码</h1>
-<p>有待补充</p>
+<p>KNN:<a href="https://github.com/shuaijiang/KNN" target="_blank"><a href="https://github.com/shuaijiang/KNN">https://github.com/shuaijiang/KNN</a></a><br>k-means: 有待补充</p>
 <h1>参考文献</h1>
 <ol>
 <li>李航. 统计学习方法.清华大学出版社.2012</li>
