@@ -127,9 +127,26 @@ k值的选择：也就是类别的确定，与K近邻中k值的确定方法类�
 </blockquote>
 <p>（表注：Test:male、Test:female分别表示测试集中的男性和女性，Result:male和Result:female分别表示结果中的男性和女性。表格中第一个元素：即Test:male列、Result：male行，表示测试集中为男性、并且结果中也为男性的数目。表格中其他元素所代表的含义以此类推）<br>由上表可以计算分类的正确率：(20+14)/(20+14+1) = <strong>97.14%</strong></p>
 <h2>K-means的聚类结果</h2>
-<p>有待补充</p>
+<p>K-means算法的基本设置</p>
+<ul>
+<li>k=2</li>
+<li>距离度量：欧氏距离</li>
+<li>最大聚类次数：200</li>
+<li>类别决策规则：根据每个聚类簇中的多数决定类别</li>
+</ul>
+<blockquote>
+<table border="1" align="center" valign="center">  <tr><th>混淆矩阵</th><td>Test:male</td><td>Test:female</td></tr>    <tr><td>Result:male</td><td align="center">20</td><td align="center" >1</td></tr>  <tr><td>Result:female</td><td align="center">0</td><td align="center">14</td></tr> </table>
+
+</blockquote>
+<p>（表注：该表与上表内容一致）</p>
+<p>由于选择初始中心点是随机的，所以每次的聚类结果都不相同，最好的情况下能够完全聚类正确，最差的情况下两个聚类簇没有分开，根据多数投票决定类别时，被标记为同一个类别。</p>
+<h1>总结</h1>
+<p>本文概括地描述了K近邻算法和K-means算法，具体比较了二者的算法步骤。在此基础上，通过将两种方法应用到实际问题中，更深入地比较二者的异同，以及各自的优劣。本文作者还分别实现了K近邻算法和K-means算法，并且应用到了具体问题上，最后得到了结果。<br>以上内容难免有所纰漏和错误，欢迎指正。</p>
 <h1>源代码</h1>
-<p>KNN: <a href="https://github.com/shuaijiang/KNN" target="_blank"><a href="https://github.com/shuaijiang/KNN">https://github.com/shuaijiang/KNN</a></a><br>k-means: 有待补充</p>
+<ul>
+<li>KNN: <a href="https://github.com/shuaijiang/KNN" target="_blank"><a href="https://github.com/shuaijiang/KNN">https://github.com/shuaijiang/KNN</a></a></li>
+<li>k-means: <a href="https://github.com/shuaijiang/k-means" target="_blank"><a href="https://github.com/shuaijiang/k-means">https://github.com/shuaijiang/k-means</a></a></li>
+</ul>
 <h1>参考文献</h1>
 <ol>
 <li>李航. 统计学习方法.清华大学出版社.2012</li>
