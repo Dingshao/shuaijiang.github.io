@@ -3,18 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>基于HMM的参数式语音合成 | shuaijiang's blog</title>
+  <title>朴素贝叶斯（naive_bayes） | shuaijiang's blog</title>
   <meta name="author" content="shuaijiang">
   
-  <meta name="description" content="背景介绍
-20世纪90年代中期，参数式语音合成得到人们的关注；基于HMM的参数式语音合成快速发展，并成为主流。
-隐马尔科夫模型（Hidden Markov Models, HMM）
-20世纪60年代末，Baum在理论上给出了关于隐马尔科夫模型的数学推理。一直到80年代，才有人用来解释语音信号的产生过程。经过30多年的发展，HMM已经被广泛应用到语音识别、说话人识别和语音合成等领域，并取得了巨大的成功。">
+  <meta name="description" content="简介
+朴素贝叶斯法是基于贝叶斯定理与特征条件独立假设的分类方法。其基本的思路是：对于给定的训练数据集，首先基于特征条件独立假设学习输入和输出的联合概率分布，然后基于该模型，对于给定的输入x，利用贝叶斯定理求出后验概率最大的输出y。朴素贝叶斯法实现简单，学习和预测的效率都很高，是一种比较常用的方法。
+">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="基于HMM的参数式语音合成"/>
+  <meta property="og:title" content="朴素贝叶斯（naive_bayes）"/>
   <meta property="og:site_name" content="shuaijiang's blog"/>
 
   
@@ -60,46 +59,24 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-04-01T02:29:15.000Z"><a href="/2014/04/01/hmm_based_speech_synthesis/">4月 1 2014</a></time>
+        <time datetime="2014-10-28T14:21:38.000Z"><a href="/2014/10/28/naive_bayes/">10月 28 2014</a></time>
       
       
   
-    <h1 class="title">基于HMM的参数式语音合成</h1>
+    <h1 class="title">朴素贝叶斯（naive_bayes）</h1>
   
 
     </header>
     <div class="entry">
       
-        <h1>背景介绍</h1>
-<p>20世纪90年代中期，参数式语音合成得到人们的关注；基于HMM的参数式语音合成快速发展，并成为主流。</p>
-<h1>隐马尔科夫模型（Hidden Markov Models, HMM）</h1>
-<p>20世纪60年代末，Baum在理论上给出了关于隐马尔科夫模型的数学推理。一直到80年代，才有人用来解释语音信号的产生过程。经过30多年的发展，HMM已经被广泛应用到语音识别、说话人识别和语音合成等领域，并取得了巨大的成功。</p>
-<a id="more"></a>
-
-<h1>基于HMM的参数式语音合成</h1>
-<h2>系统框图</h2>
-<p>下图是基于HMM的参数式语音合成系统的框图。包括两个阶段：训练阶段，合成阶段。<br><img src="/image/hmm_based_speech_synthesis.png" alt=""></p>
-<h2>训练阶段</h2>
-<p>首先从训练语音数据库中提取特征参数，然后训练上下文相关的HMM模型，并且依据上下文相关的问题集利用决策树对模型聚类，最后训练得到模型。</p>
-<h2>合成阶段</h2>
-<p>先将输入文本经过文本前端分析得到上下文标注，然后根据相应的决策树为上下文标注生成合适的HMM状态序列，并利用时长模型预测出相应的状态时长，最后通过最大似然准则约束下的参数生成算法得到谱参数和基频，并采用合适的参数合成器生成语音。</p>
-<h2>优点</h2>
-<ol>
-<li>可以方便地实现声音特点、说话方式和感情的转换。这也是参数式语音合成的主要优点。</li>
-<li>声学空间的有效覆盖。相比于基于单元挑选的波形拼接式语音合成，依赖于单元库的大小；参数式语音合成利用统计方法生成语音，从而比基于单元挑选的语音合成有更大的声学空间。</li>
-<li>多语言支持。基于单元挑选的波形拼接式语音合成，对于每种语言都需要相应的单元库。参数式语音合成对于不同的语言，只要相应的改变训练数据，并进行训练即可。</li>
-</ol>
-<h2>缺点</h2>
-<ol>
-<li>声码器。基于HMM的参数式语音合成利用梅尔倒谱声码器，听起来会比较闷（buzzy）</li>
-<li>声学建模的准确性。</li>
-<li>过拟合问题。相比于自然语音，合成的语音听起来会明显地沉闷（muffled），这主要就是因为生成的语音参数总是过拟合的。在建模过程中语音的细节特征被忽略了，在合成过程中不能被恢复。</li>
-</ol>
+        <h1>简介</h1>
+<p>朴素贝叶斯法是基于贝叶斯定理与特征条件独立假设的分类方法。其基本的思路是：对于给定的训练数据集，首先基于特征条件独立假设学习输入和输出的联合概率分布，然后基于该模型，对于给定的输入x，利用贝叶斯定理求出后验概率最大的输出y。<br>朴素贝叶斯法实现简单，学习和预测的效率都很高，是一种比较常用的方法。</p>
+<h1>朴素贝叶斯法</h1>
+<h1>朴素贝叶斯法的参数估计</h1>
+<h1>应用实例</h1>
 <h1>参考文献</h1>
 <ol>
-<li>YoshimuraÝ T, TokudaÝ K, MasukoÝÝ T, et al. Simultaneous modeling of spectrum, pitch and duration in HMM-based speech synthesis[J]. 1999.</li>
-<li>于延锁.语音合成中韵律建模方法研究[D]. Ph.D. thesis, 北京大学, 2013</li>
-<li>Zen H, Tokuda K, Black A W. Statistical parametric speech synthesis[J]. Speech Communication, 2009, 51(11): 1039-1064.</li>
+<li>李航. 统计学习方法.清华大学出版社.2012</li>
 </ol>
 
       
@@ -110,7 +87,7 @@
         
   
   <div class="tags">
-    <a href="/tags/语音合成/">语音合成</a>
+    <a href="/tags/机器学习/">机器学习</a>
   </div>
 
         
