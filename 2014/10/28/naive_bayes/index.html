@@ -20,7 +20,7 @@ $=\prod^n_{j=1} P(X^{(j)}|Y=c_k)$由于这一假设，模型的条件概率的�
 $P(Y|X) = \frac{P(X,Y)}{P(X)}=\frac{P(Y)P(X|Y)}{\sum_YP(P(Y)P(X|Y))}$
 对输入x得到后验概率最大的类y
 $y=\arg \max_{c_k}P(Y=c_k)P(X_j=x^{(j)}|Y=c_k)$
-$y=\arg \max_{c_k}P(Y=c_k) \qquad \prod P(X_j=x^{(j)}|Y=c_k)$
+$y=\arg \max_{c_k}P(Y=c_k) \prod^n P(X_j=x^{(j)}|Y=c_k)$
 $y=\arg \max{c_k}P(Y=c_k) \qquad \prod{j=1}^{n}P(X_j=x^{(j)}|Y=c_k)$">
   
   
@@ -129,7 +129,7 @@ $y=\arg \max{c_k}P(Y=c_k) \qquad \prod{j=1}^{n}P(X_j=x^{(j)}|Y=c_k)$">
 <p>$P(Y|X) = \frac{P(X,Y)}{P(X)}=\frac{P(Y)P(X|Y)}{\sum_YP(P(Y)P(X|Y))}$</p>
 <p>对输入x得到后验概率最大的类y</p>
 <p>$y=\arg \max_{c_k}P(Y=c_k)P(X_j=x^{(j)}|Y=c_k)$</p>
-<p>$y=\arg \max_{c_k}P(Y=c_k) \qquad \prod P(X_j=x^{(j)}|Y=c_k)$</p>
+<p>$y=\arg \max_{c_k}P(Y=c_k) \prod^n P(X_j=x^{(j)}|Y=c_k)$</p>
 <p>$y=\arg \max<em>{c_k}P(Y=c_k) \qquad \prod</em>{j=1}^{n}P(X_j=x^{(j)}|Y=c_k)$</p>
 <a id="more"></a>
 
