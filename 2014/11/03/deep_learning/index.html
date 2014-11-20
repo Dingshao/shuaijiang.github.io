@@ -202,7 +202,7 @@
 <h1>在语言模型中的应用</h1>
 <h1>在自然语言处理中的应用</h1>
 <h1>在信息检索中的应用</h1>
-<p>这里我们讨论DBN在文档索引和信息检索中很有趣的应用（Salakhutdinov and Hinton, 2007; Hinton and Salakhutdinov, 2010）。DBN的最后一层不仅容易推断，并且相比于信息检索中已经广泛使用的潜在语义分析和传统的TF-IDF方法，能够给出每个文档一个基于词频特征的更好的表示。一个深层的生成模型DBN用于上述目的。简而言之，DBN中最低的层表示词频次的向量，高的层次表示文档的紧凑的二值编码。</p>
+<p>这里我们讨论DBN在文档索引和信息检索中很有趣的应用（Salakhutdinov and Hinton, 2007; Hinton and Salakhutdinov, 2010）。DBN的最后一层不仅容易推断，并且相比于信息检索中已经广泛使用的潜在语义分析和传统的TF-IDF方法，能够给出每个文档一个基于词频特征的更好的表示。一个深层的生成模型DBN用于上述目的。简而言之，DBN中最低的层表示词频的向量，高的层次表示文档的紧凑的二值编码。</p>
 <p>模型训练好之后，检索的过程开始于将每个查询文档映射到一个128bit的二值编码，通过模型的前馈、根据门限而得到。之后，计算查询二值编码和所有其他文档的128比特二值编码的汉明距离。</p>
 <p>上述信息检索中对于文本文档编码的想法，已经在音频文档和语音特征编码问题上开始探索。</p>
 <h1>在图像、视觉、多任务处理的经典应用</h1>
@@ -318,7 +318,7 @@ var duoshuoQuery = {short_name:"shuaijiang"};
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
     <input type="search" name="q" results="0" placeholder="搜索">
-    <input type="hidden" name="q" value="site:yoursite.com">
+    <input type="hidden" name="q" value="site:shuaijiang.github.io">
   </form>
 </div>
 
