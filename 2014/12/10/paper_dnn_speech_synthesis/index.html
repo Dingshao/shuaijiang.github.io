@@ -15,7 +15,7 @@
 论文链接：http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6639215
 
 简介
-">
+利用深层神经网络（Deep Neural Network,DNN）取代基于隐马尔科夫模型（Hidden Markov Models，HMMs）的语音合成中的决策树聚类和高斯混合模型（Guassian Mixture Models, GMMs），以提高声学建模的准确性。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -118,7 +118,22 @@
 <li>论文链接：<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6639215" title="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6639215" target="_blank"><a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6639215">http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6639215</a></a></li>
 </ul>
 <h1>简介</h1>
-<h1>Deep Neural Network</h1>
+<p>利用深层神经网络（Deep Neural Network,DNN）取代基于隐马尔科夫模型（Hidden Markov Models，HMMs）的语音合成中的决策树聚类和高斯混合模型（Guassian Mixture Models, GMMs），以提高声学建模的准确性。<br><a id="more"></a></p>
+<p>参数式语音合成中影响语音合成质量的三个因素：</p>
+<ul>
+<li>声码器自身的局限</li>
+<li>声学模型的准确性</li>
+<li>过平滑问题</li>
+</ul>
+<p>该文章关注声学模型的准确性。</p>
+<h1>决策树与DNN特性的比较</h1>
+<ul>
+<li>决策树不能有效表达文本特征中的复杂函数；DNN可以表示。</li>
+<li>决策树依赖输入空间的分区，并且分别使用一组参数来对应一个分区；DNN有更好的泛化能力，它的权重是从所有的训练数据中训练得到的。</li>
+<li>在训练阶段，利用反向传播算法训练DNN的计算量要远远大于构建决策树；在预测阶段，DNN需要在每一层做矩阵的乘法，决策树只需要从根节点遍历到叶子节点。</li>
+<li>决策树可以提高可以解释的规则，而DNN中的权重则很难解释。</li>
+</ul>
+<h1>基于DNN的语音合成</h1>
 <h1>结果</h1>
 
       
