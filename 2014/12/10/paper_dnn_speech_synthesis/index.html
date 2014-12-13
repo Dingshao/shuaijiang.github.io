@@ -134,7 +134,25 @@
 <li>决策树可以提高可以解释的规则，而DNN中的权重则很难解释。</li>
 </ul>
 <h1>基于DNN的语音合成</h1>
-<h1>结果</h1>
+<p><img src="/paper_image/DNN_based_speech_synthesis.png" alt="基于DNN的语音合成系统框图"></p>
+<h1>实验</h1>
+<h2>实验设置</h2>
+<ul>
+<li>数据：专业女性，英语语音数据，33000句</li>
+<li>输入特征：342维二值特征，用于类别上下文信息（例如音子ID、重音标记）；25维的数值特征，用于数值上下文信息（例如词中的音节数目、当前音节在短语中的位置）</li>
+<li>输出特征：40维梅尔倒谱、对数基频、5带宽的非周期分量，以及他们的一阶、二阶差分，共3*（40+1+5）=138维</li>
+<li>DNN：权重随机初始化、基于小批量随机梯度下降（minibatch stochastic gradient descent，SGD）的反向传播算法、sigmoid作为激活函数<h2>客观评价</h2>
+客观指标包括：</li>
+<li>Mel-cepstral distortion：谱参数的距离</li>
+<li>Voiced/Unvoiced Error Rate：清浊音判断错误率</li>
+<li>RMSE in log F0:基频在对数域上的均方误差</li>
+<li>Aperiodicity distortion:非周期分量的距离</li>
+</ul>
+<p>下图分别展示出了在不同模型条件下的客观指标。<br><img src="/paper_image/object_evaluation.png" alt="客观评价"></p>
+<h2>主观评价</h2>
+<p><img src="/paper_image/subject_evaluation.png" alt="主观评价"></p>
+<h1>结论</h1>
+<p>这篇文章利用DNN实现了语音合成。基于DNN的语音合成具有解决基于HMM的方法中决策树聚类的局限的潜力。<br>客观评价证明利用深层的结构提高了基于神经网络的系统的性能。另外，在相似的模型参数条件下，在主观的测听中，基于DNN的系统要比基于HMM的系统有更好的性能。</p>
 
       
     </div>
