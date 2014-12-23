@@ -3,15 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ubuntu_hexo | shuaijiang's blog</title>
+  <title>Paper Reading：《TTS Synthesis with Bidirectional LSTM based Recurrent Neural Networks》 | shuaijiang's blog</title>
   <meta name="author" content="shuaijiang">
   
-  <meta name="description" content="在ubuntu下搭建hexo">
+  <meta name="description" content="论文信息
+
+作者：Yuchen Fan, Yao Qian, Fenglong Xie, Frank K. Soong
+单位：上海交通大学，MSRA
+会议：INTERSPEECH
+发表日期： 2014
+论文链接：https://mazsola.iit.uni-miskolc.hu/~czap/let">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="ubuntu_hexo"/>
+  <meta property="og:title" content="Paper Reading：《TTS Synthesis with Bidirectional LSTM based Recurrent Neural Networks》"/>
   <meta property="og:site_name" content="shuaijiang's blog"/>
 
   
@@ -90,17 +96,36 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-02-17T02:22:20.000Z"><a href="/2014/02/17/ubuntu_hexo/">2月 17 2014</a></time>
+        <time datetime="2014-12-15T11:46:07.000Z"><a href="/2014/12/15/paper_rnn_tts/">12月 15 2014</a></time>
       
       
   
-    <h1 class="title">ubuntu_hexo</h1>
+    <h1 class="title">Paper Reading：《TTS Synthesis with Bidirectional LSTM based Recurrent Neural Networks》</h1>
   
 
     </header>
     <div class="entry">
       
-        <h1>在ubuntu下搭建hexo</h1>
+        <h1>论文信息</h1>
+<ul>
+<li>作者：Yuchen Fan, Yao Qian, Fenglong Xie, Frank K. Soong</li>
+<li>单位：上海交通大学，MSRA</li>
+<li>会议：INTERSPEECH</li>
+<li>发表日期： 2014</li>
+<li>论文链接：<a href="https://mazsola.iit.uni-miskolc.hu/~czap/letoltes/IS14/IS2014/PDF/AUTHOR/IS140552.PDF" title="https://mazsola.iit.uni-miskolc.hu/~czap/letoltes/IS14/IS2014/PDF/AUTHOR/IS140552.PDF" target="_blank"><a href="https://mazsola.iit.uni-miskolc.hu/~czap/letoltes/IS14/IS2014/PDF/AUTHOR/IS140552.PDF">https://mazsola.iit.uni-miskolc.hu/~czap/letoltes/IS14/IS2014/PDF/AUTHOR/IS140552.PDF</a></a></li>
+</ul>
+<h1>简介</h1>
+<p>采用双向LSTM单元的RNN能够捕捉参数式语音合成中一个语音句子中的任意两时刻的相关性。</p>
+<h1>DBLSTM RNN</h1>
+<p>LSTM（Long Short Term Memory）的结构如下图所示。LSTM能够解决传统RNN中的梯度消失问题。<br><img src="/paper_image/LSTM" alt="LSTM"></p>
+<p><img src="/paper_image/Bidirectional_RNN" alt="Bidirectional RNN"></p>
+<p>深层双向LSTM是深层双向RNN和LSTM的结合。</p>
+<h1>基于RNN的语音合成</h1>
+<p>下图是基于DBLSTM-RNN的语音合成系统框图。<br><img src="/paper_image/DBLSTM_RNN_TTS" alt="基于RNN的语音合成系统框图"></p>
+<h1>实验</h1>
+<h2>实验设置</h2>
+<h2>实验结果</h2>
+<h1>结论</h1>
 
       
     </div>
@@ -110,7 +135,7 @@
         
   
   <div class="tags">
-    <a href="/tags/ubuntu/">ubuntu</a>
+    <a href="/tags/PaperReading/">PaperReading</a>, <a href="/tags/语音合成/">语音合成</a>
   </div>
 
         
