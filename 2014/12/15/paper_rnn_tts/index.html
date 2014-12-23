@@ -12,7 +12,10 @@
 单位：上海交通大学，MSRA
 会议：INTERSPEECH
 发表日期： 2014
-论文链接：https://mazsola.iit.uni-miskolc.hu/~czap/let">
+论文链接：https://mazsola.iit.uni-miskolc.hu/~czap/letoltes/IS14/IS2014/PDF/AUTHOR/IS140552.PDF
+
+简介
+采用双向LSTM单元的RNN能够捕捉参数式语音合成中一个语音句子中的任意两时刻的相关性。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -115,13 +118,15 @@
 <li>论文链接：<a href="https://mazsola.iit.uni-miskolc.hu/~czap/letoltes/IS14/IS2014/PDF/AUTHOR/IS140552.PDF" title="https://mazsola.iit.uni-miskolc.hu/~czap/letoltes/IS14/IS2014/PDF/AUTHOR/IS140552.PDF" target="_blank"><a href="https://mazsola.iit.uni-miskolc.hu/~czap/letoltes/IS14/IS2014/PDF/AUTHOR/IS140552.PDF">https://mazsola.iit.uni-miskolc.hu/~czap/letoltes/IS14/IS2014/PDF/AUTHOR/IS140552.PDF</a></a></li>
 </ul>
 <h1>简介</h1>
-<p>采用双向LSTM单元的RNN能够捕捉参数式语音合成中一个语音句子中的任意两时刻的相关性。</p>
+<p>采用双向LSTM单元的RNN能够捕捉参数式语音合成中一个语音句子中的任意两时刻的相关性。<br><a id="more"></a></p>
 <h1>DBLSTM RNN</h1>
-<p>LSTM（Long Short Term Memory）的结构如下图所示。LSTM能够解决传统RNN中的梯度消失问题。<br><img src="/paper_image/LSTM" alt="LSTM"></p>
-<p><img src="/paper_image/Bidirectional_RNN" alt="Bidirectional RNN"></p>
+<p>LSTM（Long Short Term Memory）的结构如下图所示。LSTM能够解决传统RNN中的梯度消失问题。<br><img src="/paper_image/LSTM.png" alt="LSTM"><br>下图是双向RNN的结构，其能够访问前向和后向的上下文。<br><img src="/paper_image/Bidirectional_RNN.png" alt="Bidirectional RNN"></p>
 <p>深层双向LSTM是深层双向RNN和LSTM的结合。</p>
 <h1>基于RNN的语音合成</h1>
-<p>下图是基于DBLSTM-RNN的语音合成系统框图。<br><img src="/paper_image/DBLSTM_RNN_TTS" alt="基于RNN的语音合成系统框图"></p>
+<p>下图是基于DBLSTM-RNN的语音合成系统框图。<br><img src="/paper_image/DBLSTM_RNN_TTS.png" alt="基于RNN的语音合成系统框图"></p>
+<p>基于DBLSTM-RNN的语音合成系统中，丰富的上下文作为输入特征，包括二值特征（例如音子标记、词性标记等）和数值特征（例如短语中词的数目、当前帧在当前音子的位置）；输出特征就是声学特征，例如谱包络、基频。输入特征和输出特征是通过训练好的HMM做时间上帧级别的对齐。</p>
+<p>在RNN的训练中，训练的准则是最小化输出特征和目标之间的均方根误差。BPTT（Back-propagation through time）是常用的算法。</p>
+<p>在合成阶段，输入文本首先通过文本分析转换成输入特征向量，然后输入特征向量通过训练好的DBLSTM-RNN映射到输出特征向量。</p>
 <h1>实验</h1>
 <h2>实验设置</h2>
 <h2>实验结果</h2>
