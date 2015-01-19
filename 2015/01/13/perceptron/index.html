@@ -118,9 +118,9 @@
 <h2>感知机学习算法的原始形式</h2>
 <p>给定一个训练数据集，求参数$w,b$,使其成为损失函数极小化的解：    $min L(w,b)=-\sum_{x_i \in M} y_i (w \cdot x_i +b)$,其中$M$为误分类点的集合。</p>
 <p>感知机学习算法是误分类驱动的，具体是采用随机梯度下降法。首先，任意选取一个超平面$w_0,b_0$，然后用梯度下降法不断极小化目标函数。极小化过程中不是一次使$M$中所有的误分类点的梯度下降，而是一次随机选取一个误分类点使其梯度下降。</p>
-<p>假设误分类点集合$M$是固定的，那么损失函数$L(w,b)$的梯度为：<br>1. $\nabla_w L(w,b)=-\sum_x y_i x_i$ </p>
+<p>假设误分类点集合$M$是固定的，那么损失函数$L(w,b)$的梯度为：<br>1. $\nabla _w L(w,b) = -\sum_x y_i x_i$ </p>
 <ol>
-<li>$\nabla_b L(w,b)=-\sum_x y_i$</li>
+<li>$\nabla_b L(w,b) = -\sum_x y_i$</li>
 </ol>
 <p>随机选取一个误分类点$(x_i,y_i)$，对$w,b$进行更新：<br>1. $w \leftarrow w + \eta y_i x_i$<br>2. $b\leftarrow \eta y_i$<br>其中，$\eta(0&lt;\eta \ge 1)$是步长，又称为学习率。这样，通过迭代以期损失函数$L(w,b)$不断减小，直到0为止。</p>
 <p><strong>感知机学习算法</strong><br>输入：训练数据集<br>输出：$w,b$;感知机模型$f(x)=sign(w \cdot x+b)$<br>1. 选取初值<br>2. 在训练集中选取数据<br>3. 如果 $y_i(w \cdot x_i + b) \le 0$:     $w \leftarrow w + \eta y_i x_i$;$b\leftarrow \eta y_i$<br>4. 转至2，直至训练集中没有误分类点。</p>
