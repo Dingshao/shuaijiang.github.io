@@ -115,6 +115,10 @@
 <p>感知机学习的损失函数定义为$L(w,b)=-\sum_{x_i \in M} y_i (w \cdot x_i +b)$</p>
 <h1>感知机学习算法</h1>
 <p>感知机学习算法是误分类驱动的，具体是采用随机梯度下降法。</p>
+<h2>感知机学习算法的原始形式</h2>
+<p><strong>感知机学习算法</strong><br>输入：训练数据集<br>输出：$w,b$;感知机模型$f(x)=sign(w \cdot x+b)$<br>1. 选取初值<br>2. 在训练集中选取数据<br>3. 如果 $y_i(w \cdot x_i + b) \le 0$:<br>    $w \leftarrow w + \eta y_i x_i$,$b\leftarrow \eta y_i$<br>4. 转至2，直至训练集中没有误分类点。</p>
+<h2>算法的收敛性</h2>
+<h2>感知机学习算法的对偶形式</h2>
 
       
     </div>
