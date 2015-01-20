@@ -89,6 +89,46 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-01-20T12:24:46.000Z"><a href="/2015/01/20/twosum/">1月 20 2015</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/01/20/twosum/">twosum</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1>Description</h1>
+<p>Given an array of integers, find two numbers such that they add up to a specific target number.</p>
+<p>The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based.</p>
+<p>You may assume that each input would have exactly one solution.</p>
+<p>Input: numbers={2, 7, 11, 15}, target=9<br>Output: index1=1, index2=2</p>
+<h1>My Solution</h1>
+<p>I solve this problem in Java, as below:<br>    import java.util.HashMap;<br>    public class Solution {<br>        public int[] twoSum(int[] numbers, int target) {<br>            int[] index = new int[2];<br>            index[0] = -1;<br>            index[1] = -1;<br>            HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();<br>            int len = numbers.length;<br>            for(int i=0;i&lt;len;i++)<br>            {<br>                Integer value = target - numbers[i];<br>                map.put(value,i+1);<br>            }<br>            for(int i=0;i&lt;len;i++)<br>            {<br>                Integer gap = target - numbers[i];<br>                Integer index2 = map.get(gap);<br>                if(index2 != null &amp;&amp; index2 != i + 1)<br>                {<br>                    index[0]=i+1;<br>                    index[1]=index2;<br>                    return index;<br>                }<br>            }<br>            return index;<br>        }<br>    }</p>
+<h1>Note</h1>
+<p>One more ‘simple’ solution is just traversal the array in two nests, but it will take about $O(N^2)$, which exceeds the time. So another way is using Hash(or HashMap in java), keep the difference value between target and number, then you can get it without costing many time. This way just take about $O(n)$.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-01-13T12:58:03.000Z"><a href="/2015/01/13/perceptron/">1月 13 2015</a></time>
       
       
@@ -459,75 +499,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-10-16T01:57:26.000Z"><a href="/2014/10/16/perl_filter_file/">10月 16 2014</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/10/16/perl_filter_file/">Perl过滤、复制文件</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h1>功能</h1>
-<p>从指定的目录中，根据文件列表，将文件复制到指定的目录中。</p>
-<p>注意：文件列表没有指定文件后缀，输入参数中要指定文件后缀。</p>
-<h1>核心部分：复制文件</h1>
-<h2>样例（demo）</h2>
-<pre><code><span class="keyword">use</span> File::Copy;
-copy(<span class="string">"sourcefile"</span>,<span class="string">"destinationfile"</span>) <span class="keyword">or</span> <span class="keyword">die</span> <span class="string">"Copy failed: <span class="variable">$!</span>"</span>;</code></pre>
-<h2>介绍（description）</h2>
-<p>copy函数需要两个参数:复制源文件和复制目标文件。每个参数都可以是字符串，也可以是文件句柄引用或者文件句柄。</p>
-<p>原文：（<a href="http://perldoc.perl.org/File/Copy.html" target="_blank"><a href="http://perldoc.perl.org/File/Copy.html">http://perldoc.perl.org/File/Copy.html</a></a>）</p>
-<h1>代码</h1>
-<p>源代码文件下载：<a href="https://github.com/shuaijiang/PerlScript/blob/master/filter.pl" target="_blank"><a href="https://github.com/shuaijiang/PerlScript/blob/master/filter.pl">https://github.com/shuaijiang/PerlScript/blob/master/filter.pl</a></a></p>
-<pre><code><span class="comment">#!/bin/perl</span>
-<span class="comment">#This Perl script is copy files from given source directory to </span>
-<span class="comment">#given target directory according to given scp</span>
-<span class="comment">#Author: shuaijiang</span>
-<span class="comment">#Email: zhaoshuaijiang8@gmail.com</span>
-<span class="keyword">use</span> strict;
-<span class="keyword">use</span> File::Copy;
-<span class="keyword">if</span>(<span class="variable">$#ARGV</span> != <span class="number">3</span>)
-{
-    <span class="keyword">print</span> <span class="string">"Usage: perl file.pl scp source_path target_path suffix\n"</span>;
-    <span class="keyword">exit</span>;
-}
-<span class="keyword">my</span> <span class="variable">$scp</span> = <span class="variable">$ARGV</span>[<span class="number">0</span>];
-<span class="keyword">my</span> <span class="variable">$source_path</span> = <span class="variable">$ARGV</span>[<span class="number">1</span>];
-<span class="keyword">my</span> <span class="variable">$target_path</span> = <span class="variable">$ARGV</span>[<span class="number">2</span>];
-<span class="keyword">my</span> <span class="variable">$suffix</span> = <span class="variable">$ARGV</span>[<span class="number">3</span>];
-<span class="keyword">open</span>(SCP,<span class="string">"&lt;<span class="variable">$scp</span>"</span>) <span class="keyword">or</span> <span class="keyword">die</span> <span class="string">"Can't open <span class="variable">$!</span>\n"</span>;
-<span class="keyword">while</span> (&lt;SCP&gt;) {
-    <span class="keyword">chomp</span>;
-    <span class="keyword">my</span> <span class="variable">$file</span> = <span class="variable">$_</span>;
-    <span class="keyword">my</span> <span class="variable">$source_file</span> = <span class="variable">$source_path</span> . <span class="string">'/'</span> . <span class="variable">$file</span> . <span class="variable">$suffix</span>;
-    <span class="keyword">my</span> <span class="variable">$target_file</span> = <span class="variable">$target_path</span> . <span class="string">'/'</span> . <span class="variable">$file</span> . <span class="variable">$suffix</span>;
-    <span class="keyword">print</span> <span class="string">"source_file=<span class="variable">$source_file</span> target_file=<span class="variable">$target_file</span>\n"</span>;
-    copy(<span class="string">"<span class="variable">$source_file</span>"</span>,<span class="string">"<span class="variable">$target_file</span>"</span>) <span class="keyword">or</span> <span class="keyword">die</span> <span class="string">"Copy file failed!\n"</span>;
-}
-<span class="keyword">close</span>(SCP);</code></pre>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
 
 <nav id="pagination">
   
@@ -558,6 +529,8 @@ copy(<span class="string">"sourcefile"</span>,<span class="string">"destinationf
     <li><a href="/tags/PaperReading/">PaperReading</a><small>4</small></li>
   
     <li><a href="/tags/Perl/">Perl</a><small>1</small></li>
+  
+    <li><a href="/tags/leetcode/">leetcode</a><small>1</small></li>
   
     <li><a href="/tags/ubuntu/">ubuntu</a><small>1</small></li>
   
