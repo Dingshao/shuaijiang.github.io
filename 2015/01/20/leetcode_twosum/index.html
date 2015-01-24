@@ -3,15 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>shuaijiang's blog</title>
+  <title>LeetCode: Two Sum | shuaijiang's blog</title>
   <meta name="author" content="shuaijiang">
   
-  <meta name="description" content="layout: categoriestitle: categories">
+  <meta name="description" content="Description
+Given an array of integers, find two numbers such that they add up to a specific target number.
+The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based.
+You may assume that each input would have exactly one solution.
+Input: numbers={2, 7, 11, 15}, target=9Output: index1=1, index2=2
+The original problem is here:">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="LeetCode: Two Sum"/>
   <meta property="og:site_name" content="shuaijiang's blog"/>
 
   
@@ -84,20 +89,59 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="page">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
   <div class="post-content">
     <header>
       
+        <div class="icon"></div>
+        <time datetime="2015-01-20T12:24:46.000Z"><a href="/2015/01/20/leetcode_twosum/">1月 20 2015</a></time>
+      
       
   
-    <h1 class="title"></h1>
+    <h1 class="title">LeetCode: Two Sum</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>layout: categories<br>title: categories</p>
+        <h1>Description</h1>
+<p>Given an array of integers, find two numbers such that they add up to a specific target number.</p>
+<p>The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based.</p>
+<p>You may assume that each input would have exactly one solution.</p>
+<p>Input: numbers={2, 7, 11, 15}, target=9<br>Output: index1=1, index2=2</p>
+<p>The original problem is <a href="https://oj.leetcode.com/problems/two-sum/" title="here" target="_blank">here</a>:<br><a id="more"></a></p>
+<h1>My Solution</h1>
+<p>I solve this problem in Java, as below:</p>
+<pre><code>import java.util.HashMap; 
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> {</span>
+    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> target) {
+        <span class="keyword">int</span>[] <span class="keyword">index</span> = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];
+        <span class="keyword">index</span>[<span class="number">0</span>] = -<span class="number">1</span>;
+        <span class="keyword">index</span>[<span class="number">1</span>] = -<span class="number">1</span>;
+        HashMap&lt;Integer,Integer&gt; map = <span class="keyword">new</span> HashMap&lt;Integer,Integer&gt;();
+        <span class="keyword">int</span> len = numbers.length;
+        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)
+        {
+            Integer value = target - numbers[i];
+            map.put(value,i+<span class="number">1</span>);
+        }
+        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)
+        {
+            Integer gap = target - numbers[i];
+            Integer index2 = map.get(gap);
+            <span class="keyword">if</span>(index2 != <span class="keyword">null</span> &amp;&amp; index2 != i + <span class="number">1</span>)
+            {
+                <span class="keyword">index</span>[<span class="number">0</span>]=i+<span class="number">1</span>;
+                <span class="keyword">index</span>[<span class="number">1</span>]=index2;
+                <span class="keyword">return</span> <span class="keyword">index</span>;
+            }
+        }
+        <span class="keyword">return</span> <span class="keyword">index</span>;
+    }
+}</code></pre>
+<h1>Note</h1>
+<p>One more ‘simple’ solution is just traversal the array in two nests, but it will take about $O(N^2)$, which exceeds the time. So another way is using Hash(or HashMap in java), keep the difference value between target and number, then you can get it without costing many time. This way just take about $O(N)$.</p>
 
       
     </div>
@@ -105,6 +149,11 @@
       
         
         
+  
+  <div class="tags">
+    <a href="/tags/LeetCode/">LeetCode</a>
+  </div>
+
         
   <div class="addthis addthis_toolbox addthis_default_style">
     

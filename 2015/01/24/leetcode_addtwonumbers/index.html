@@ -3,20 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Leetcode: Two Sum | shuaijiang's blog</title>
+  <title>LeetCode: Add Two Numbers | shuaijiang's blog</title>
   <meta name="author" content="shuaijiang">
   
   <meta name="description" content="Description
-Given an array of integers, find two numbers such that they add up to a specific target number.
-The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based.
-You may assume that each input would have exactly one solution.
-Input: numbers={2, 7, 11, 15}, target=9Output: index1=1, index2=2
+You are given two linked lists representing two non-negative numbers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)Output: 7 -&gt; 0 -&gt; 8
 The original problem is here:">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Leetcode: Two Sum"/>
+  <meta property="og:title" content="LeetCode: Add Two Numbers"/>
   <meta property="og:site_name" content="shuaijiang's blog"/>
 
   
@@ -95,53 +93,82 @@ The original problem is here:">
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-01-20T12:24:46.000Z"><a href="/2015/01/20/twosum/">1月 20 2015</a></time>
+        <time datetime="2015-01-24T13:21:18.000Z"><a href="/2015/01/24/leetcode_addtwonumbers/">1月 24 2015</a></time>
       
       
   
-    <h1 class="title">Leetcode: Two Sum</h1>
+    <h1 class="title">LeetCode: Add Two Numbers</h1>
   
 
     </header>
     <div class="entry">
       
         <h1>Description</h1>
-<p>Given an array of integers, find two numbers such that they add up to a specific target number.</p>
-<p>The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based.</p>
-<p>You may assume that each input would have exactly one solution.</p>
-<p>Input: numbers={2, 7, 11, 15}, target=9<br>Output: index1=1, index2=2</p>
-<p>The original problem is <a href="https://oj.leetcode.com/problems/two-sum/" title="here" target="_blank">here</a>:<br><a id="more"></a></p>
+<p>You are given two linked lists representing two non-negative numbers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
+<p>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>Output: 7 -&gt; 0 -&gt; 8</p>
+<p>The original problem is <a href="https://oj.leetcode.com/problems/add-two-numbers/" title="here" target="_blank">here</a>:<br><a id="more"></a></p>
 <h1>My Solution</h1>
 <p>I solve this problem in Java, as below:</p>
-<pre><code>import java.util.HashMap; 
+<pre><code> <span class="javadoc">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */</span>
 <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> {</span>
-    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> target) {
-        <span class="keyword">int</span>[] <span class="keyword">index</span> = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];
-        <span class="keyword">index</span>[<span class="number">0</span>] = -<span class="number">1</span>;
-        <span class="keyword">index</span>[<span class="number">1</span>] = -<span class="number">1</span>;
-        HashMap&lt;Integer,Integer&gt; map = <span class="keyword">new</span> HashMap&lt;Integer,Integer&gt;();
-        <span class="keyword">int</span> len = numbers.length;
-        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)
+    <span class="keyword">public</span> ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        <span class="keyword">int</span> carry = <span class="number">0</span>;
+        <span class="keyword">int</span> value = <span class="number">0</span>;
+        <span class="keyword">int</span> count = <span class="number">0</span>;
+        ListNode result = <span class="keyword">null</span>, l3 = <span class="keyword">null</span>;
+        <span class="keyword">while</span>(l1 != <span class="keyword">null</span> || l2 != <span class="keyword">null</span>)
         {
-            Integer value = target - numbers[i];
-            map.put(value,i+<span class="number">1</span>);
-        }
-        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)
-        {
-            Integer gap = target - numbers[i];
-            Integer index2 = map.get(gap);
-            <span class="keyword">if</span>(index2 != <span class="keyword">null</span> &amp;&amp; index2 != i + <span class="number">1</span>)
+            <span class="keyword">if</span>(l1 == <span class="keyword">null</span>)
+                l1 = <span class="keyword">new</span> ListNode(<span class="number">0</span>);
+            <span class="keyword">if</span>(l2 == <span class="keyword">null</span>)
+                l2 = <span class="keyword">new</span> ListNode(<span class="number">0</span>);
+
+            <span class="keyword">if</span>(count == <span class="number">0</span>)
             {
-                <span class="keyword">index</span>[<span class="number">0</span>]=i+<span class="number">1</span>;
-                <span class="keyword">index</span>[<span class="number">1</span>]=index2;
-                <span class="keyword">return</span> <span class="keyword">index</span>;
+                l3 = <span class="keyword">new</span> ListNode(<span class="number">0</span>);
+                result = l3;
             }
+            <span class="keyword">else</span>
+            {
+                l3.next = <span class="keyword">new</span> ListNode(<span class="number">0</span>);
+                l3 = l3.next;
+            }
+            <span class="keyword">if</span>(carry == <span class="number">1</span>)
+            {
+                l3.val = <span class="number">1</span>;
+            }
+            value = l1.val + l2.val + carry;
+            <span class="keyword">if</span>(value &gt;= <span class="number">10</span>)
+            {
+                value = value%<span class="number">10</span>;
+                carry = <span class="number">1</span>;
+            }
+            <span class="keyword">else</span>
+                carry = <span class="number">0</span>;
+            l3.val = value;
+            <span class="keyword">if</span>(carry == <span class="number">1</span>)
+            {
+                l3.next = <span class="keyword">new</span> ListNode(<span class="number">1</span>);
+            }
+            l1 = l1.next;
+            l2 = l2.next;
+            count ++;
         }
-        <span class="keyword">return</span> <span class="keyword">index</span>;
+        <span class="keyword">return</span> result;
     }
 }</code></pre>
 <h1>Note</h1>
-<p>One more ‘simple’ solution is just traversal the array in two nests, but it will take about $O(N^2)$, which exceeds the time. So another way is using Hash(or HashMap in java), keep the difference value between target and number, then you can get it without costing many time. This way just take about $O(N)$.</p>
+<p>Because of the two numbers are stored in two Linked lists, the addition is computed for each digit, so don&#39;t foget the carry(进位). Additionly, the two linked lists may have different lengths!</p>
 
       
     </div>
@@ -151,7 +178,7 @@ The original problem is here:">
         
   
   <div class="tags">
-    <a href="/tags/leetcode/">leetcode</a>
+    <a href="/tags/LeetCode/">LeetCode</a>
   </div>
 
         
@@ -253,11 +280,11 @@ var duoshuoQuery = {short_name:"shuaijiang"};
   <h3 class="title">标签</h3>
   <ul class="entry">
   
+    <li><a href="/tags/LeetCode/">LeetCode</a><small>2</small></li>
+  
     <li><a href="/tags/PaperReading/">PaperReading</a><small>4</small></li>
   
     <li><a href="/tags/Perl/">Perl</a><small>1</small></li>
-  
-    <li><a href="/tags/leetcode/">leetcode</a><small>1</small></li>
   
     <li><a href="/tags/ubuntu/">ubuntu</a><small>1</small></li>
   
